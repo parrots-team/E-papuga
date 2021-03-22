@@ -1,0 +1,18 @@
+Polityki wewnętrzne:
+
+1)bezpieczeństwa
+- tworzenie kopii zapasowych raz na 3 dni
+- dane użytkowników kodowane
+- w celu konsultacji co do projektu tylko czat głosowy 
+- jeżeli czat głosowy jest niemożliwy to pisanie z nowo utworzonych kont
+
+2)niezawodność
+- odpowiednia liczba wykonanych testów w celu ograniczenia błędów
+- "dedykowane aktualizacje polepszające działanie / łatwiejszy interface"
+
+3)jakość
+- regularnie aktualizowane repozytorium
+- szkolenia z zakresu programowania, grafiki oraz angielskiego
+- przejrzyszty kod z klarownymi komentarzami oraz dobrą dokumentacją
+- przeslij swoja opinie - użytkownicy wystawiający oceny i komentarze na podstawie których można wnosić poprawki
+ 
