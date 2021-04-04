@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Epapuga">
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".ProfilActivity"></activity>
+        <activity android:name=".ProfilActivity">
+
+        </activity>
         <activity android:name=".RejestracjaActivity"></activity>
         <activity android:name=".LoginActivity" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
