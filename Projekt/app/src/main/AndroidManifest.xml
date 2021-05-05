@@ -9,13 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Epapuga">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".ProfilActivity">
+        <activity android:name=".WikiActivity2"
+            android:parentActivityName=".WikiActivity"
+            android:label="Gatunek"
+        />
 
-        </activity>
-        <activity android:name=".RejestracjaActivity"></activity>
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".WikiActivity"
+            android:label="Papugedia"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ProfilActivity" />
+        <activity android:name=".CalendarActivity" />
 
+        <activity android:name=".RejestracjaActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

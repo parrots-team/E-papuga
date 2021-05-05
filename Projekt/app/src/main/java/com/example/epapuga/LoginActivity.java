@@ -66,6 +66,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
     }
+    
+    public void onBackPressed() {
+        //do nothing
+    }
 
     private void userLogin()
     {

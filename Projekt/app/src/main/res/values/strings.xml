@@ -1,3 +1,48 @@
 <resources>
     <string name="app_name">epapuga</string>
+    <string name="zapisz">Zapisz</string>
+    <string name="wydarzenie">Wydarzenie</string>
+
+    <string-array name="Papugedia">
+        <item>Aleksandretta</item>
+        <item>Amazonka</item>
+        <item>Ara</item>
+        <item>Falista</item>
+        <item>Kakadu</item>
+        <item>Nifma</item>
+        <item>Żako</item>
+    </string-array>
+
+    <string-array name="opis">
+        <item>(Psittacula krameri) to gatunek papugi z Indii, dość często spotykany w hodowlach. Brak dymorfizmu płciowego, poza różnicami w ubarwieniu głowy i szyi. Gatunek nominatywny jest zielony z ciemną obrożą, biegnącą przez gardło i pod policzkami. Dziób jest czerwony. Czerwonawa jest też obwódka oka.
+
+W hodowli spotykane są odmiany: brązowy szek, jasnogłowy szek, turkusowa, szek par-blue, lutino (żółta), niebieska, szek, siatkoskrzydła.</item>
+        <item>(Amazona aestiva) to papuga z podrodziny papug właściwych. Strona grzbietowa ma ciemnozielony kolor, strona brzuszna jasnozielony. Głowa z wierzchu, policzki, gardziel są żółte.
+            Czoło jest koloru niebieskiego (stąd nazwa). Zewnętrzne chorągiewki części lotek są czerwone. Samiec i samica wyglądają tak samo.</item>
+        <item>(Ara ararauna) to ptak z rodziny papug. Strona grzbietowa upierzona jest na niebiesko, od spodu na żółto.
+            Charakterystyczne są białe policzki z ciemnymi paskami, wybiegającymi z okolic dzioba w kierunku szyi. Samiec jest nieco większy od samicy, ale upierzony jest tak samo.</item>
+        <item>(Melopsittacus undulatus) to gatunek papugi. Brak dymorfizmu płciowego w upierzeniu. Samica ma szarą woskówkę, samiec niebieską.
+            Przez podgardle przechodzi rząd ciemnych korali. W naturze czoło i ciemię oraz policzki są żółte. Grzbiet poprzez kark aż po głowę jest zielony z ciemniejszymi falami, biegnącymi w poprzek ciała.
+            Fale są też obecne na policzkach. Spodnia strona jest zielona. Skrzydła są żółtawe z czarnym deseniem. Lotki są zielone. Nogi są niebieskawe.</item>
+        <item>(Cacatua galerita) to gatunek papugi z Australii o białym upierzeniu z żółtym czubem. Żółtawe są też okolice uszne. Dziób oraz nogi są ciemne.</item>
+        <item>(Nymphicus hollandicus) to gatunek papugi, jednej z najbardziej popularnych w domowych hodowlach.
+            Samica ma mniej intensywne barwy na policzkach, czub szary. Ogon od spodu jest pokryty szaro-żółtymi prążkami.
+            U samca policzki i czub są żółte. Ogon jest czarny od spodu.
+            Znane są oprócz odmiany nominalnej odmiany lutino (żółta), żółtolica, perłowa białolica ze wspaniałym kreskowaniem</item>
+        <item> (Psittacus erithacus) to papuga z podrodziny ar o szarym upierzeniu. Ogon jest czerwony. Obszar wokół oka, kuper i brzuch są jaśniejsze.
+            Tęczówka oka jest żółta. Dymorfizm płciowy nie występuje.
+            Samica jest nieco mniejsza i jaśniejsza od samca.
+            Samiec ma szpiczaste i skierowane ku tyłowi obwódki wokół oczu, samica zaś ma je bardziej zaokrąglone.</item>
+    </string-array>
+
+    <string-array name="opisW">
+        <item>Papuga ta żyje w Indiach i na Sri Lance. Co ciekawe w USA, Singapurze, Europie (w tym w Wielkiej Brytanii) żyją populacje zbiegłe z hodowli. W Sudanie (Afryka) żyje podgatunek tej papugi. Preferuje lasy, zarośla, sawanny wzdłuż rzek. Pionowy zasięg występowania to 2000 m n.p.m.</item>
+        <item>Pierwotne lasy środkowo-zachodniej Ameryki Południowej. Zajmuje także tereny otwarte, gaje uprawne.</item>
+        <item>Zamieszkuje tropikalne lasy Ameryki Południowej, zazwyczaj w niedalekiej odległości od wodnych zbiorników, także sawanny i pobliża osiedli ludzkich.</item>
+        <item>Papużki faliste preferują otwarte przestrzenie, lasy galeriowe, śródpolne zadrzewienia Australii. Brak ich w Tasmanii. W latach 50. XX w. gatunek ten introdukowano na Florydzie w stanach Zjednoczonych.</item>
+        <item>Kakadu żółtoczuba to gatunek żyjący w Australii (północna i wschodnia część) oraz na Tasmanii i Nowej Gwinei z okolicznymi wyspami. Można ją spotkać w lasach, na sawannach, terenach rolniczych, zwykle blisko wodnych zbiorników. Brak wyraźnego dymorfizmu płciowego. Czasem samiec ma brązową tęczówkę.</item>
+        <item>Nimfa pochodzi z Australii. Została introdukowana także na Tasmanii. Można ją spotkać w parkach, na sawannach, łąkach, polach, zwykle w niewielkiej odległości od zbiorników wodnych.</item>
+        <item>Środkowa i zachodnia część Afryki. Naturalnym środowiskiem są pierwotne nizinne lasy deszczowe, lasy galeriowe, namorzynowe, sawanna z większymi zadrzewieniami. Gatunek ten występuje także w dużych parkach i ogrodach.</item>
+    </string-array>
+
 </resources>
