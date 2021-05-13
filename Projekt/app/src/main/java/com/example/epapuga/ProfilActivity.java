@@ -7,21 +7,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.BitSet;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfilActivity extends AppCompatActivity
 {
@@ -29,6 +43,8 @@ public class ProfilActivity extends AppCompatActivity
     FloatingActionButton add_button;
     ImageView empty_img;
     TextView no_data;
+
+
 
     MyDatabaseHelper myDB;
     ArrayList<String> id_papuga, title, opis, data, jedzenie, zabawki;
@@ -43,6 +59,11 @@ public class ProfilActivity extends AppCompatActivity
         add_button = findViewById(R.id.add_button);
         empty_img = findViewById(R.id.empty_img);
         no_data = findViewById(R.id.no_data);
+
+
+
+
+
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +71,12 @@ public class ProfilActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
+
+
+
+
+
 
         myDB = new MyDatabaseHelper(ProfilActivity.this);
         id_papuga = new ArrayList<>();
@@ -61,19 +88,30 @@ public class ProfilActivity extends AppCompatActivity
 
         storeDatainArrays();
 
-        customAdapter = new CustomAdapter(ProfilActivity.this, this, id_papuga, title, opis, data, jedzenie, zabawki );
+        customAdapter = new CustomAdapter(ProfilActivity.this, this, id_papuga, title, opis, data, jedzenie, zabawki);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ProfilActivity.this));
 
+
+
+
+
+
     }
 
+
+
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1){
+
+
+        if (requestCode == 1) {
             recreate();
         }
     }
+
+
 
     void storeDatainArrays() {
          Cursor cursor = myDB.readAllData();

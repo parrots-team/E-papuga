@@ -86,17 +86,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView papuga_id_txt, papuga_title_txt, papuga_opis_txt, papuga_urodziny_txt,papuga_jedzenie_txt, papuga_zabawki_txt  ;
+        TextView papuga_id_txt, papuga_title_txt, papuga_opis_txt, papuga_urodziny_txt,papuga_jedzenie_txt, papuga_zabawki_txt, profile_img  ;
         LinearLayout profilLayout;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
             papuga_id_txt = itemView.findViewById(R.id.papuga_id_txt);
             papuga_title_txt = itemView.findViewById(R.id.papuga_title_txt);
+            profile_img = itemView.findViewById(R.id.profile_image);
             papuga_opis_txt = itemView.findViewById(R.id.papuga_opis_txt);
             papuga_urodziny_txt = itemView.findViewById(R.id.papuga_urodziny_txt);
             papuga_jedzenie_txt = itemView.findViewById(R.id.papuga_jedzenie_txt);
             papuga_zabawki_txt = itemView.findViewById(R.id.papuga_zabawki_txt);
+
             profilLayout = itemView.findViewById(R.id.profilLayout);
             translate_anim = AnimationUtils.loadAnimation(context, R.anim.translate_anim);
             profilLayout.setAnimation(translate_anim);
