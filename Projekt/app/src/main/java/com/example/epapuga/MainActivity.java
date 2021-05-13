@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton imgLogout;
     private ImageButton imgCalendar;
     private ImageButton imgWiki;
+    private ImageButton imgProfil;
 
 
 
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         imgLogout = (ImageButton) findViewById(R.id.imgLogout);
         imgCalendar = (ImageButton) findViewById(R.id.imgCalendar);
         imgWiki = (ImageButton) findViewById(R.id.imgWiki);
+        imgProfil = (ImageButton) findViewById(R.id.imgProfil);
+
 
         imgLogout.setOnClickListener(new View.OnClickListener()
         {
@@ -41,15 +44,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        imgCalendar.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                startActivity(new Intent(MainActivity.this, CalendarActivity.class));
-
-            }
-        });
+//        imgCalendar.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                startActivity(new Intent(MainActivity.this, CalendarActivity.class));
+//
+//            }
+//        });
 
         imgWiki.setOnClickListener(new View.OnClickListener()
         {
@@ -61,6 +64,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        imgProfil.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(MainActivity.this, ProfilActivity.class));
+
+            }
+        });
     }
 
 }

@@ -9,17 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Epapuga">
-        <activity android:name=".WikiActivity2"
-            android:parentActivityName=".WikiActivity"
+        <activity android:name=".UpdateActivity"
+            android:parentActivityName=".ProfilActivity"/>
+        <activity
+            android:name=".AddActivity"
+            android:label="Dodaj Papugę"
+            android:parentActivityName=".ProfilActivity" />
+        <activity
+            android:name=".WikiActivity2"
             android:label="Gatunek"
-        />
-
-        <activity android:name=".WikiActivity"
-            android:label="Papugedia"/>
+            android:parentActivityName=".WikiActivity" />
+        <activity
+            android:name=".WikiActivity"
+            android:label="Papugedia" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ProfilActivity" />
+        <activity
+            android:name=".ProfilActivity"
+            android:label="Papugi" />
         <activity android:name=".CalendarActivity" />
-
         <activity android:name=".RejestracjaActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>

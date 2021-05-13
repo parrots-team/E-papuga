@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,6 +39,8 @@ public class WikiAdapter extends RecyclerView.Adapter<WikiAdapter.MyViewHolder>
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.my_row,parent,false);
         return new MyViewHolder(view);
+
+
     }
 
     @Override
@@ -47,6 +50,9 @@ public class WikiAdapter extends RecyclerView.Adapter<WikiAdapter.MyViewHolder>
         holder.opis_txt.setText(data2[position]);
         holder.opis_txt2.setText(data3[position]);
         holder.wikiImgView.setImageResource(images[position]);
+
+
+
 
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +65,11 @@ public class WikiAdapter extends RecyclerView.Adapter<WikiAdapter.MyViewHolder>
                 context.startActivity(intent);
             }
         });
+
+
+
     }
+
 
     @Override
     public int getItemCount() {
