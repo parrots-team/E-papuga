@@ -1,10 +1,13 @@
-package com.example.epapuga;
+package com.example.epapuga.Wikipedia;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.epapuga.R;
+import com.example.epapuga.Wikipedia.WikiAdapter;
 
 public class WikiActivity extends AppCompatActivity
 {

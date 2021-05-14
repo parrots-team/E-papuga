@@ -3,12 +3,12 @@ package com.example.epapuga;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-import android.os.Bundle;
 import android.widget.ImageButton;
 
+import com.example.epapuga.LoginRegister.LoginActivity;
+import com.example.epapuga.Wikipedia.WikiActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                startActivity(new Intent(MainActivity.this, ProfilActivity.class));
+                startActivity(new Intent(MainActivity.this, Profil.class));
 
             }
         });

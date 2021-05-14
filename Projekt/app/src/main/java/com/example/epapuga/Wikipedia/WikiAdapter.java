@@ -1,4 +1,4 @@
-package com.example.epapuga;
+package com.example.epapuga.Wikipedia;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,9 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.epapuga.R;
 
 public class WikiAdapter extends RecyclerView.Adapter<WikiAdapter.MyViewHolder>
 {

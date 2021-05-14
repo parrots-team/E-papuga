@@ -1,4 +1,4 @@
-package com.example.epapuga;
+package com.example.epapuga.Wikipedia;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.epapuga.R;
 
 public class WikiActivity2 extends AppCompatActivity {
 

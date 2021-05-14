@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddUpdateRecordActivity">
+
+
+    <!--ImageView: Input Profile Image-->
+    <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+        android:id="@+id/profileIv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_width="120dp"
+        app:c_border="true"
+        app:c_border_width="1dp"
+        app:c_border_color="@color/colorGray1"
+        android:src="@drawable/ic_add_photo_black"
+        android:layout_height="120dp"/>
+
+    <!--EditText: Input Parrot Name-->
+    <EditText
+        android:id="@+id/nameEt"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="4dp"
+        android:inputType="textPersonName|textCapWords"
+        android:layout_below="@+id/profileIv"
+        android:layout_width="match_parent"
+        android:hint="Imię"
+        android:layout_height="wrap_content"/>
+
+    <!--EditText: Input Parrot Date-->
+    <EditText
+        android:id="@+id/dateEt"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="4dp"
+        android:inputType="date"
+        android:layout_below="@+id/nameEt"
+        android:layout_width="match_parent"
+        android:hint="Urodziny dd/mm/rrrr"
+        android:background="@drawable/shape_rectangle"
+        android:padding="10dp"
+        android:layout_height="wrap_content"/>
+
+    <!--EditText: Input Parrot Food-->
+    <EditText
+        android:id="@+id/foodEt"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="4dp"
+        android:layout_below="@+id/dateEt"
+        android:layout_width="match_parent"
+        android:hint="Ulubione jedzenie"
+        android:background="@drawable/shape_rectangle"
+        android:padding="10dp"
+        android:layout_height="wrap_content"/>
+
+    <!--EditText: Input Parrot Toys-->
+    <EditText
+        android:id="@+id/toyEt"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/shape_rectangle"
+        android:padding="10dp"
+        android:layout_below="@+id/foodEt"
+        android:layout_width="match_parent"
+        android:hint="Ulubione zabawki"
+        android:layout_height="wrap_content"/>
+
+    <!--EditText: Input Parrot words-->
+    <EditText
+        android:id="@+id/wordsEt"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/shape_rectangle"
+        android:padding="10dp"
+        android:layout_below="@+id/toyEt"
+        android:layout_width="match_parent"
+        android:hint="Nauczone słowa"
+        android:layout_height="wrap_content"/>
+
+    <!--EditText: Input Parrot character-->
+    <EditText
+        android:id="@+id/characterEt"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="4dp"
+        android:inputType="textCapSentences|textMultiLine"
+        android:layout_below="@+id/wordsEt"
+        android:minHeight="90dp"
+        android:gravity="start"
+        android:background="@drawable/shape_rectangle"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:hint="Cechy charakteru"
+        android:layout_height="wrap_content"/>
+
+    <!--FAB: Add/Update Record-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/saveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_done_white"/>
+
+
+
+</RelativeLayout>

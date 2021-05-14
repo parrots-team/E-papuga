@@ -1,4 +1,4 @@
-package com.example.epapuga;
+package com.example.epapuga.LoginRegister;
 
 public class User
 {
