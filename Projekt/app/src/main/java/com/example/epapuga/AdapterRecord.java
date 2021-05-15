@@ -1,8 +1,11 @@
 package com.example.epapuga;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,10 +28,15 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderReco
     private Context context;
     private ArrayList<ModelRecord> recordsList;
 
+    //DB helper
+    MyDbHelper dbHelper;
+
     //constructor
     public AdapterRecord(Context context, ArrayList<ModelRecord> recordsList) {
         this.context = context;
         this.recordsList = recordsList;
+
+        dbHelper = new MyDbHelper(context);
     }
 
     @NonNull
@@ -46,16 +54,16 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderReco
 
         //get data
         ModelRecord model = recordsList.get(position);
-        String id = model.getId();
-        String name = model.getName();
-        String image = model.getImage();
-        String date = model.getDate();
-        String food = model.getFood();
-        String toy = model.getToy();
-        String words = model.getWords();
-        String character = model.getCharacter();
-        String addedTime = model.getAddedTime();
-        String updateTime = model.getUpdatedTime();
+        final String id = model.getId();
+        final  String name = model.getName();
+        final String image = model.getImage();
+        final String date = model.getDate();
+        final String food = model.getFood();
+        final String toy = model.getToy();
+        final String words = model.getWords();
+        final String character = model.getCharacter();
+        final String addedTime = model.getAddedTime();
+        final String updateTime = model.getUpdatedTime();
 
         //set data to views
         holder.nameTv.setText(name);
@@ -86,11 +94,68 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.HolderReco
         holder.moreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //show options menu
+                showMoreDialog(
+                        ""+position,
+                        ""+id,
+                        ""+name,
+                        ""+image,
+                        ""+date,
+                        ""+food,
+                        ""+toy,
+                        ""+words,
+                        ""+character,
+                        ""+addedTime,
+                        ""+updateTime
+                        );
             }
         });
 
+        Log.d("ImagePath", "onBindViewHolder: "+image);
 
+    }
+
+    private void showMoreDialog(String position, String id, String name, String image,
+                                String date, String food, String toy, String words, String character,
+                                String addedTime, String updateTime) {
+
+        //options to display in dialog
+        String[] options = {"Edit", "Delete"};
+        //dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        //add items to dialog
+        builder.setItems(options, new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //handle item clicks
+                if (which==0){
+                    //Edit is clicked
+
+                    //start AddUpdateRecordActivity to update existing record
+                    Intent intent = new Intent(context, AddUpdateRecordActivity.class);
+                    intent.putExtra("ID", id);
+                    intent.putExtra("NAME", name);
+                    intent.putExtra("IMAGE", image);
+                    intent.putExtra("DATE", date);
+                    intent.putExtra("FOOD", food);
+                    intent.putExtra("TOY", toy);
+                    intent.putExtra("WORDS", words);
+                    intent.putExtra("CHARACTER", character);
+                    intent.putExtra("ADDED_TIME", addedTime);
+                    intent.putExtra("UPDATED_TIME", updateTime);
+                    intent.putExtra("isEditMode", true);
+                    context.startActivity(intent);
+                }
+                else if (which==1){
+                    //delete is clicked
+                    dbHelper.deleteData(id);
+                    //refresh record by calling activity's onResume method
+                    ((Profil)context).onResume();
+                }
+            }
+        });
+        //show dialog
+        builder.create().show();
     }
 
     @Override

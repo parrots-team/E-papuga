@@ -16,6 +16,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,6 +25,12 @@ import com.blogspot.atifsoftwares.circularimageview.CircularImageView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
 
 public class AddUpdateRecordActivity extends AppCompatActivity {
 
@@ -44,7 +51,8 @@ public class AddUpdateRecordActivity extends AppCompatActivity {
     private String[] storagePermissions; //only storage
     //variables (will contain data to save)
     private Uri imageUri;
-    private String name, date, food, toy, words, character;
+    private String id, name, date, food, toy, words, character, addedTime, updatedTime;
+    private boolean isEditMode = false;
 
     //db helper
     private MyDbHelper dbHelper;
@@ -78,6 +86,50 @@ public class AddUpdateRecordActivity extends AppCompatActivity {
         characterEt = findViewById(R.id.characterEt);
         saveBtn = findViewById(R.id.saveBtn);
 
+        //get data from intent
+        Intent intent = getIntent();
+        isEditMode = intent.getBooleanExtra("isEditMode", false);
+        if (isEditMode) {
+            //update data
+
+            actionBar.setTitle("Update Data");
+
+            id = intent.getStringExtra("ID");
+            name = intent.getStringExtra("NAME");
+            imageUri = Uri.parse(intent.getStringExtra("IMAGE"));
+            date = intent.getStringExtra("DATE");
+            food = intent.getStringExtra("FOOD");
+            toy = intent.getStringExtra("TOY");
+            words = intent.getStringExtra("WORDS");
+            character = intent.getStringExtra("CHARACTER");
+            addedTime = intent.getStringExtra("ADDED_TIME");
+            updatedTime = intent.getStringExtra("UPDATED_TIME");
+
+            //set data to views
+            nameEt.setText(name);
+            dateEt.setText(date);
+            foodEt.setText(food);
+            toyEt.setText(toy);
+            wordsEt.setText(words);
+            characterEt.setText(character);
+
+            //if no image was selected while adding data, imageUri value will be "null"
+            if(imageUri.toString().equals("null")){
+                //no image, set default
+                profileIv.setImageResource(R.drawable.ic_person_black);
+            }
+            else{
+                //have image, set
+                profileIv.setImageURI(imageUri);
+            }
+
+        }
+        else{
+            //add data
+
+            actionBar.setTitle("Add Record");
+
+        }
 
         //init db helper
         dbHelper = new MyDbHelper(this);
@@ -113,21 +165,43 @@ public class AddUpdateRecordActivity extends AppCompatActivity {
         words = ""+wordsEt.getText().toString().trim();
         character = ""+characterEt.getText().toString().trim();
 
-        //save to db
-        String timestamp = ""+System.currentTimeMillis();
-        long id = dbHelper.insertRecord(
-                ""+name,
-                ""+imageUri,
-                ""+date,
-                ""+food,
-                ""+toy,
-                ""+words,
-                ""+character,
-                ""+timestamp,
-                ""+timestamp
-        );
+        if(isEditMode){
+            //update data
 
-        Toast.makeText(this, "Record Added against ID: "+id, Toast.LENGTH_SHORT).show();
+            String timestamp = ""+System.currentTimeMillis();
+            dbHelper.updateRecord(
+                    ""+id,
+                    ""+name,
+                    ""+imageUri,
+                    ""+date,
+                    ""+food,
+                    ""+toy,
+                    ""+words,
+                    ""+character,
+                    ""+addedTime, //added time will be same
+                    ""+timestamp //update time will be changed
+            );
+            Toast.makeText(this, "Zaktualizowane...", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            //new data
+
+            //save to db
+            String timestamp = ""+System.currentTimeMillis();
+            long id = dbHelper.insertRecord(
+                    ""+name,
+                    ""+imageUri,
+                    ""+date,
+                    ""+food,
+                    ""+toy,
+                    ""+words,
+                    ""+character,
+                    ""+timestamp,
+                    ""+timestamp
+            );
+
+            Toast.makeText(this, "Record Added against ID: "+id, Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void imagePickDialog() {
@@ -219,6 +293,65 @@ public class AddUpdateRecordActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(this, cameraPermissions, CAMERA_REQUEST_CODE);
     }
 
+    private void copyFileOrDirectory(String srcDir, String desDir){
+        //create filler in specified directory
+
+        try{
+            File src = new File(srcDir);
+            File des = new File(desDir,src.getName());
+            if (src.isDirectory()){
+                String[] files = src.list();
+                int filesLength = files.length;
+                for (String file : files){
+                    String src1 = new File(src, file).getPath();
+                    String dst1 = des.getPath();
+                    
+                    copyFileOrDirectory(src1, dst1);
+                }
+            }
+            else {
+                copyFile(src, des);
+            }
+        }
+        catch (Exception e){
+            Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void copyFile(File srcDir, File desDir) throws IOException {
+        if (!desDir.getParentFile().exists()){
+            desDir.mkdirs(); //create if not exists
+        }
+
+        if (!desDir.exists()){
+            desDir.createNewFile();
+        }
+
+        FileChannel source = null;
+        FileChannel destination = null;
+
+        try {
+            source = new FileInputStream(srcDir).getChannel();
+            destination = new FileOutputStream(desDir).getChannel();
+            destination.transferFrom(source, 0, source.size());
+
+            imageUri = Uri.parse(desDir.getPath()); // uri of saved image
+            Log.d("ImagePath", "copyFile: "+imageUri);
+        }
+        catch (Exception e){
+            Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        finally {
+            //close resources
+            if (source!=null){
+                source.close();
+            }
+            if (destination!=null){
+                destination.close();
+            }
+        }
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed(); //go back by clicking back button of actionbar
@@ -297,6 +430,8 @@ public class AddUpdateRecordActivity extends AppCompatActivity {
                    imageUri = resultUri;
                    //set image
                     profileIv.setImageURI(resultUri);
+
+                    copyFileOrDirectory(""+imageUri.getPath(), ""+getDir("SQLiteRecordImages", MODE_PRIVATE));
                 }
                 else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
                     //error
