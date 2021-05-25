@@ -1,4 +1,4 @@
-package com.example.epapuga;
+package com.example.epapuga.profil;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import android.text.format.DateFormat;
 import android.widget.TextView;
 
 import com.blogspot.atifsoftwares.circularimageview.CircularImageView;
+import com.example.epapuga.R;
 
 import java.util.Calendar;
 import java.util.Locale;

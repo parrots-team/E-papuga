@@ -1,4 +1,4 @@
-package com.example.epapuga;
+package com.example.epapuga.profil;
 
 import android.content.ContentValues;
 import android.content.Context;

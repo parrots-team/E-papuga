@@ -7,8 +7,10 @@ import android.view.View;
 
 import android.widget.ImageButton;
 
+import com.example.epapuga.Kalendarz.CalendarActivity;
 import com.example.epapuga.LoginRegister.LoginActivity;
 import com.example.epapuga.Wikipedia.WikiActivity;
+import com.example.epapuga.profil.Profil;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,15 +46,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        imgCalendar.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v)
-//            {
-//                startActivity(new Intent(MainActivity.this, CalendarActivity.class));
-//
-//            }
-//        });
+        imgCalendar.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(MainActivity.this, CalendarActivity.class));
+
+            }
+        });
 
         imgWiki.setOnClickListener(new View.OnClickListener()
         {

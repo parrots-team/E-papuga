@@ -12,9 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Epapuga">
-        <activity android:name=".RecordDetailActivity"></activity>
-        <activity android:name=".AddUpdateRecordActivity" />
-        <activity android:name=".Profil" />
+        <activity android:name=".profil.RecordDetailActivity"></activity>
+        <activity android:name=".profil.AddUpdateRecordActivity" />
+        <activity android:name=".profil.Profil" />
         <activity
             android:name=".Wikipedia.WikiActivity2"
             android:label="Gatunek"
@@ -23,7 +23,7 @@
             android:name=".Wikipedia.WikiActivity"
             android:label="Papugedia" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".CalendarActivity" />
+        <activity android:name=".Kalendarz.CalendarActivity" />
         <activity android:name=".LoginRegister.RejestracjaActivity" />
         <activity android:name=".LoginRegister.LoginActivity">
             <intent-filter>

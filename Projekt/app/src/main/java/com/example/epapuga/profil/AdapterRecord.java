@@ -1,4 +1,4 @@
-package com.example.epapuga;
+package com.example.epapuga.profil;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.epapuga.R;
 
 import org.jetbrains.annotations.NotNull;
 

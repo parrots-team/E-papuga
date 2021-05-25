@@ -1,4 +1,4 @@
-package com.example.epapuga;
+package com.example.epapuga.profil;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.epapuga.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Profil extends AppCompatActivity {
