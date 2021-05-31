@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "162106664575",
+    "project_id": "auth-7c546",
+    "storage_bucket": "auth-7c546.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162106664575:android:e4ef7d9b2428ffc884014a",
+        "android_client_info": {
+          "package_name": "com.example.epapuga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162106664575-jth5cm1pje8ifd7c32siiv6ommli48do.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtu9S6fhohsDV9nO5-GsScvGOU0hDZQ3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162106664575-jth5cm1pje8ifd7c32siiv6ommli48do.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
